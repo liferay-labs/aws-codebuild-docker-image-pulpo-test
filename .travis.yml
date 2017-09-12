@@ -8,10 +8,10 @@ services:
 sudo: required
 
 install:
-    - echo "HOLA"
-    - docker login --username ${DOCKER_USER} --password ${DOCKER_PWD} 
+    - docker login --username ${DOCKER_USER} --password ${DOCKER_PWD}
     - docker build . -t "${PWD##*/}"
     - docker tag "${PWD##*/}" cgoncas/"${PWD##*/}"
+    - docker tag "${PWD##*/}" cgoncas/"${PWD##*/}":`date +%Y%m%d%H%M%S`
 
 script:
     - docker push cgoncas/"${PWD##*/}"
